@@ -1,0 +1,27 @@
+<jxb:bindings version="1.0"
+              xmlns:jxb="http://java.sun.com/xml/ns/jaxb"
+              schemaLocation="https://id3global.com/ID3gWS/ID3global.svc?xsd=xsd0">
+    <jxb:bindings>
+                <jxb:globalBindings
+                        fixedAttributeAsConstantProperty="true"
+                        collectionType="java.util.Vector"
+                        choiceContentProperty="false"
+                        typesafeEnumMemberName="generateError"
+                        enableFailFastCheck="false"
+                        generateIsSetMethod="false"
+                        underscoreBinding="asCharInWord"/>
+
+
+        <!-- It seems that names of the complex type clash with element names producing the error:
+         'Two declarations cause a collision in the ObjectFactory class'
+         This adds a suffix to all complex types
+          -->
+        <jxb:schemaBindings>
+            <jxb:nameXmlTransform>
+                <jxb:typeName suffix="Type"/>
+            </jxb:nameXmlTransform>
+        </jxb:schemaBindings>
+
+    </jxb:bindings>
+</jxb:bindings>
+
